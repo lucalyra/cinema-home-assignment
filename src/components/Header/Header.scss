@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 88px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+.title{
+    font-size: 50px;
+    text-align: center;
+}
+.header-options{
+    display: flex;
+    min-width: 30px;
+    justify-content: center;
+    .search-input{
+        margin-left: 5px;
+    }
+}

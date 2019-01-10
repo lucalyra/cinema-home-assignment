@@ -1,0 +1,56 @@
+.movie-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 350px;
+    width: 200px;
+    margin: 10px;
+
+}
+.movie-picture{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: 50%;
+    border: 0px solid black;
+    border-radius: 2%;
+    overflow: hidden;
+    &:hover .movie-options{
+        display: block;
+    }
+}
+.movie-options{
+    display: none;
+    position: absolute;
+    background-color: #0000008c;
+    color: white;
+    top: calc(100% - 20px);
+    height: 200px;
+    width: calc(100% - 5px);
+    padding-left: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+    .fas{
+        cursor: pointer;
+        text-align: center
+    }
+
+}
+.movie-options-open{
+    top: 200px;
+}
+
+.movie-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+}
+.movie-year{
+    font-size: 14px;
+}

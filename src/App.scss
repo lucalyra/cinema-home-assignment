@@ -1,0 +1,12 @@
+@import './components/common/styles/btn.scss';
+
+
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color:#E5E5E9;
+}
