@@ -14,15 +14,18 @@ class MovieContainer extends Component{
     render(){
         return(
             <div className="movie-container">
-                <div className="movie-picture" style={{backgroundImage: `url(${this.props.movie.Poster})`}}>
-                    <div className={this.state.isOpen ? "movie-options movie-options-open"  : "movie-options"} >
-                        <i class="fas fa-ellipsis-h " onClick={this.openOptions}></i>
-                        <button className="movie-options-delete">Delete</button>
-                        <button className="movie-options-edit">Edit</button>
+                <div className="movie-picture" style={{backgroundImage: `url(${this.props.movie.Poster})`}}></div>
+                <div className="movie-container-bottom">
+                    <div className="movie-info">
+                        <span className="movie-title">{this.props.movie.Title}</span>
+                        <span className="movie-year">{this.props.movie.Year}</span>
+                    </div>
+                    <i class="fas fa-ellipsis-h" onClick={this.openOptions}></i>
+                    <div className={this.state.isOpen ? "movie-options movie-options-open" : "movie-options"}>
+                        <span className="options-btn">Edit</span>
+                        <span className="options-btn">Delete</span>
                     </div>
                 </div>
-                <span className="movie-title">{this.props.movie.Title}</span>
-                <span className="movie-year">{this.props.movie.Year}</span>
             </div>   
         )
     }
