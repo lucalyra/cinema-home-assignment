@@ -15,19 +15,17 @@ export function getMoviesRequest(){
 export function getMoviesReceive(moviesArr){
     return {
         type: GET_MOVIES_BY_NAME_RESPONSE,
-        payload: moviesArr
+        moviesArr
     }
 }
 export function fetchMovies(movieId){
-    let moviesList = []
-    return dispatch => {
-        dispatch(getMoviesRequest())
-        movieId.map(id => {
-            MoviesService.getMovieByImdbId(id)
-            .then(res => {console.log(moviesList = [...moviesList, res])} )
-            .then(console.log(moviesList))
 
-        })
-        return dispatch(getMoviesReceive(moviesList))
-      }
-    }
+    return dispatch => { 
+        return Promise.all( movieId.map(id => {
+            return  MoviesService.getMovieByImdbId(id)
+        }))
+        .then(moviesList => {
+            dispatch({type: GET_MOVIES_BY_NAME_RESPONSE, payload: moviesList})
+        });
+}
+}
