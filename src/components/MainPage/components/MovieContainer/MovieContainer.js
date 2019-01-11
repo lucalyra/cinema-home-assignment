@@ -20,7 +20,7 @@ class MovieContainer extends Component{
                         <span className="movie-title">{this.props.movie.Title}</span>
                         <span className="movie-year">{this.props.movie.Year}</span>
                     </div>
-                    <i class="fas fa-ellipsis-h" onClick={this.openOptions}></i>
+                    <i className="fas fa-ellipsis-h" onClick={this.openOptions}></i>
                     <div className={this.state.isOpen ? "movie-options movie-options-open" : "movie-options"}>
                         <span className="options-btn">Edit</span>
                         <span className="options-btn">Delete</span>
@@ -29,6 +29,7 @@ class MovieContainer extends Component{
             </div>   
         )
     }
+    
 }
 
 export default MovieContainer
