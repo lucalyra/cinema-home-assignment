@@ -24,7 +24,8 @@ export function fetchMovies(movieId){
         dispatch(getMoviesRequest())
         movieId.map(id => {
             MoviesService.getMovieByImdbId(id)
-            .then(res => moviesList = moviesList.concat([res.data]) )
+            .then(res => {console.log(moviesList = [...moviesList, res])} )
+            .then(console.log(moviesList))
 
         })
         return dispatch(getMoviesReceive(moviesList))
