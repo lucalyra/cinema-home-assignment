@@ -19,7 +19,7 @@ class Header extends Component{
                 <div className="header-background">
                     <div className="top-header">
                         <div className="header-link-container">
-                            <div className="header-link-btn">
+                            <div className="header-link-btn" onClick={()=>window.scrollTo(0,0)}>
                                 <span className="header-link-text"> Home </span>
                             </div>
                             <div className="header-link-btn">
