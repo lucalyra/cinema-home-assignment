@@ -1,16 +1,14 @@
 import './AddMovie.scss'
 import React, { Component } from 'react'
-
 import { connect } from "react-redux";
 import {addMovie, idGene} from '../../../../actions/appActions'
-
+import {noDuplicate,DuplicateAlert} from './components/Duplicate'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-
 
 const mapDispatchToProps = dispatch => { //push props to store
     return {
@@ -21,20 +19,21 @@ const mapDispatchToProps = dispatch => { //push props to store
     
 const mapStateToProps = state => { //pull props from store
     return { 
-        addId: state.addId
+        addId: state.addId,
+        moviesArr: state.moviesArr
         };
     };  
 
 class AddMovie extends Component{
     constructor(props){
         super(props)
-         
         this.state = {
             "Title": "",
             "Year": "",
             "Runtime": "",
             "Genre": "",
             "Director": "",
+            "isDuplicate": false
         }
     }
     
@@ -43,20 +42,27 @@ class AddMovie extends Component{
     }
 
     handleSubmit = (event) => {
-        this.props.addMovie({
-            "Title": this.state.Title,
-            "Year": this.state.Year,
-            "Runtime": this.state.Runtime,
-            "Genre": this.state.Genre,
-            "Director": this.state.Director,
-            "imdbID": this.props.addId,
-            "Poster": "https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"
-        })
-        this.props.toggleAddMovie()
-        this.props.idGene()
+        if(noDuplicate(this.state, this.props.moviesArr) > 0){
+            this.setState({isDuplicate: true}) 
+        } else {
+            this.props.addMovie({
+                "Title": this.state.Title,
+                "Year": this.state.Year,
+                "Runtime": this.state.Runtime,
+                "Genre": this.state.Genre,
+                "Director": this.state.Director,
+                "imdbID": this.props.addId,
+                "Poster": "https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"
+            })
+            this.props.toggleAddMovie()
+            this.props.idGene()
+            this.setState({ "Title": "", "Year": "", "Runtime": "", "Genre": "", "Director": ""})
+        }
         event.preventDefault()
     }
-
+    closeDuplicate = () =>{
+        this.setState({isDuplicate: false})
+    }
     render(){
         return(
             <div className='add-movie'>
@@ -121,8 +127,8 @@ class AddMovie extends Component{
                             <Button className="movie-edit-btn" onClick={this.props.toggleAddMovie} color="primary"> Cancel </Button>
                         </DialogActions>
                     </ValidatorForm>
-        
                 </Dialog>
+                <DuplicateAlert state={this.state} closeDuplicate={this.closeDuplicate}/>
             </div>
     )
     }
