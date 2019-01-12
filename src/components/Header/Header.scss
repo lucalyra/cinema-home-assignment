@@ -100,7 +100,8 @@
     .header {
         height: 60%; 
     }
-    .header-link-text{
+    .header-link-btn{
+        padding: 0px 10px 0 20px;
         font-size: 14px;
     }
     .header-title{
@@ -111,6 +112,7 @@
     }
     .header-link-container{
         width: 60%;
+        justify-content: center;
     }
 
   }

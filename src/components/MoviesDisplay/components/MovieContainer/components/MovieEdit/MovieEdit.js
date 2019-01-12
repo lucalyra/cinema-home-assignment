@@ -58,7 +58,7 @@ class MovieEdit extends Component{
                 <Dialog open={this.props.isEditOpen}>
                 <DialogTitle id="form-dialog-title">Edit Movie</DialogTitle>
                 <DialogContent>
-                    <TextField autoFocus value={this.state.Title} margin="normal" name="Title" onChange={this.handleChange} label="Title" type="text" fullWidth/>
+                    <TextField value={this.state.Title} margin="normal" name="Title" onChange={this.handleChange} label="Title" type="text" fullWidth/>
                     <TextField value={this.state.Year} margin="normal" name="Year" onChange={this.handleChange} label="Year" type="text" fullWidth/>
                     <TextField value={this.state.Runtime} margin="normal" name="Runtime" onChange={this.handleChange} label="Runtime" type="text" fullWidth/>
                     <TextField value={this.state.Genre} margin="normal" name="Genre" onChange={this.handleChange} label="Genre" type="text" fullWidth/>

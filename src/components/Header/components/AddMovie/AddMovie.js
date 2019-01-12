@@ -72,7 +72,7 @@ class AddMovie extends Component{
                         Please fill all the fields.
                     </DialogContentText>
                     <ValidatorForm className="add-movie-form" onSubmit={this.handleSubmit}>
-                        <TextValidator  autoFocus validators={['required', 'isString']} 
+                        <TextValidator  validators={['required', 'isString']} 
                                         value={this.state.Title}
                                         margin="normal" 
                                         name="Title" 
