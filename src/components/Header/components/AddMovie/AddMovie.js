@@ -4,17 +4,26 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import {addMovie, idGene} from '../../../../actions/appActions'
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 const mapDispatchToProps = dispatch => { //push props to store
     return {
         addMovie: movieObj => dispatch(addMovie(movieObj)),
         idGene: () => dispatch(idGene())
         };
     };
+    
 const mapStateToProps = state => { //pull props from store
     return { 
         addId: state.addId
         };
     };  
+
 class AddMovie extends Component{
     constructor(props){
         super(props)
@@ -42,48 +51,31 @@ class AddMovie extends Component{
             "imdbID": this.props.addId,
             "Poster": "https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"
         })
+        this.props.toggleAddMovie()
         this.props.idGene()
-        event.preventDefault();
+        event.preventDefault()
     }
 
     render(){
         return(
-                <div className={this.props.addMovieOpen ? 'add-movie' : 'add-movie-input-closed'} >
-                    <div className={'add-movie-input'}>
-                        <h2>Add a Movie</h2>
-                        <form className="movie-edit-input" onSubmit={this.handleSubmit}>
-                        <label>
-                            Title:
-                            <input type="text" value={this.state.Title} name="Title" onChange={this.handleChange}/>
-                        </label>
-                        <label>
-                            Year:
-                            <input type="year" value={this.state.Year} name="Year" onChange={this.handleChange}/>
-                        </label>
-                        <label>
-                            Runtime:
-                            <input type="text" value={this.state.Runtime} name="Runtime" onChange={this.handleChange}/>
-                        </label>
-                        <label>
-                            Genre:
-                            <input type="text" value={this.state.Genre} name="Genre" onChange={this.handleChange}/>
-                        </label>
-                        <label>
-                            Director:
-                            <input type="text" value={this.state.Director} name="Director" onChange={this.handleChange}/>
-                        </label>
-                        <div className="movie-edit-btns">
-                            <button type="submit">Submit</button> 
-                            <button type="button" onClick={this.props.toggleAddMovie}>Cancel</button>
-                        </div>
-
-                    </form>
-                    </div>
+            <div className='add-movie'>
+                <Dialog open={this.props.addMovieOpen}>
+                    <DialogTitle id="form-dialog-title">Add a Movie</DialogTitle>
+                    <DialogContent>
+                        <TextField autoFocus value={this.state.Title} margin="normal" name="Title" onChange={this.handleChange} label="Title" type="text" fullWidth/>
+                        <TextField value={this.state.Year} margin="normal" name="Year" onChange={this.handleChange} label="Year" type="text" fullWidth/>
+                        <TextField value={this.state.Runtime} margin="normal" name="Runtime" onChange={this.handleChange} label="Runtime" type="text" fullWidth/>
+                        <TextField value={this.state.Genre} margin="normal" name="Genre" onChange={this.handleChange} label="Genre" type="text" fullWidth/>
+                        <TextField value={this.state.Director} margin="normal" name="Director" onChange={this.handleChange} label="Director" type="text" fullWidth/>
+                    </DialogContent>
+                    <DialogActions>
+                            <Button className="movie-edit-btn" onClick={this.handleSubmit} color="primary"> Send </Button>
+                            <Button className="movie-edit-btn" onClick={this.props.toggleAddMovie} color="primary"> Cancel </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
     )
     }
 }
 const ConnectedAddMovie = connect(mapStateToProps, mapDispatchToProps)(AddMovie)
 export default ConnectedAddMovie
-
-
