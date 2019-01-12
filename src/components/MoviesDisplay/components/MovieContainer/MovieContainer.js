@@ -1,6 +1,7 @@
 import './MovieContainer.scss'
 import React, { Component } from 'react'
-import MovieEdit from './common/MovieEdit'
+import MovieEdit from './components/MovieEdit/MovieEdit'
+import DeletePopup from './components/DeletePopup/DeletePopup'
 
 import { connect } from "react-redux";
 import {deleteMovie} from '../../../../actions/appActions'
@@ -16,7 +17,8 @@ class MovieContainer extends Component{
         super(props)
         this.state = {
             isOptionOpen: false,
-            isEditOpen: false
+            isEditOpen: false,
+            isDeleteOpen: false
         }
     }
     openOptions = () =>{ 
@@ -32,8 +34,11 @@ class MovieContainer extends Component{
                 isEditOpen: !this.state.isEditOpen  })
         }
     }
-    deleteMovie = () =>{
-        this.props.deleteMovie(this.props.movie)
+    deleteMovie = (boolean) =>{
+        if(boolean){
+            this.props.deleteMovie(this.props.movie)
+            this.setState({isDeleteOpen: false})
+        }   else { this.setState({isDeleteOpen: false}) }
         this.openOptions()
 
     }
@@ -49,10 +54,11 @@ class MovieContainer extends Component{
                     <i className="fas fa-ellipsis-h" onClick={this.openOptions}></i>
                     <div className={this.state.isOptionOpen ? "movie-options movie-options-open" : "movie-options"}>
                         <span className="options-btn" onClick={()=>this.openEdit(true)}>Edit</span>
-                        <span className="options-btn" onClick={this.deleteMovie}>Delete</span>
+                        <span className="options-btn" onClick={()=>this.setState({isDeleteOpen: true})}>Delete</span>
                     </div>
                 </div>
             <MovieEdit isEditOpen={this.state.isEditOpen} openEdit={this.openEdit} movie={this.props.movie}/>
+            <DeletePopup isDeleteOpen={this.state.isDeleteOpen} deleteMovie={this.deleteMovie}/>
             </div>   
         )
     }
