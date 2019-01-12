@@ -1,10 +1,10 @@
-import fetch from 'cross-fetch'
-
 import {
     GET_MOVIES_BY_NAME_REQUEST,
     GET_MOVIES_BY_NAME_RESPONSE,
     EDIT_MOVIE,
-    DELETE_MOVIE
+    DELETE_MOVIE,
+    ADD_MOVIE,
+    ID_GENE
 } from "./action-types";
 
 import MoviesService from "../services/MovieService" 
@@ -40,5 +40,19 @@ export function deleteMovie(movieObj){
     return{
         type: DELETE_MOVIE,
         payload: movieObj
+    }
+}
+export function addMovie(movieObj){
+    return{
+        type: ADD_MOVIE,
+        payload:[ { 
+            data: movieObj,
+            time: Date.now() 
+        } ]
+    }
+}
+export function idGene(){
+    return{
+        type: ID_GENE
     }
 }

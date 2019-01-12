@@ -20,14 +20,13 @@ class MovieEdit extends Component{
                Genre: this.props.movie.Genre,
                Director: this.props.movie.Director,
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleChange(event) {
+
+    handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
     }
-    
-    handleSubmit(event) {
+
+    handleSubmit = (event) => {
         this.props.editMovie({
             "Title": this.state.Title,
             "Year": this.state.Year,
@@ -36,14 +35,6 @@ class MovieEdit extends Component{
             "Director": this.state.Director,
             "imdbID": this.props.movie.imdbID
         })
-        // console.log({
-        //     "Title": this.state.Title,
-        //     "Year": this.state.Year,
-        //     "Runtime": this.state.Runtime,
-        //     "Genre": this.state.Genre,
-        //     "Director": this.state.Director,
-        //     "imdbID": this.props.movie.imdbID
-        // })
         this.props.openEdit(false)
         event.preventDefault();
     }
@@ -86,6 +77,5 @@ class MovieEdit extends Component{
     
 }
 
-// export default MovieEdit
 const ConnectedMovieEdit = connect(null, mapDispatchToProps)(MovieEdit)
 export default ConnectedMovieEdit
