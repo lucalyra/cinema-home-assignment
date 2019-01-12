@@ -82,3 +82,20 @@
 .movie-options-open{
     display: flex;
 }
+
+@media only screen and (max-width: 479px) {
+    .movie-container {
+        height: 168px;
+        width: 100px;
+        }
+    .movie-title{
+        font-size:14px;
+    }
+    .movie-year{
+        font-size: 11px;
+    }
+    .movie-options{
+        top: -85px;
+        left: 40px;
+    }
+  }
