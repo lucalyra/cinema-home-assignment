@@ -16,16 +16,25 @@ class Header extends Component{
      
         return(
             <div className="header">
-                <span className="title">Cinema</span>
-                <div className="header-options">
-                    Search:
-                    <input className="search-input" type="search" placeholder="Crime"/>
-                    <button className="add-btn header-btm" onClick={this.toggleAddMovie}> + </button>
+                <div className="header-background">
+                    <div className="top-header">
+                        <div className="header-link-container">
+                            <div className="header-link-btn">
+                                <span className="header-link-text"> Home </span>
+                            </div>
+                            <div className="header-link-btn">
+                                <span className="header-link-text" onClick={this.toggleAddMovie}> Add Movies </span>
+                            </div>
+                        </div>
+                    </div>
+                        <div className="header-info">
+                            <span className="header-title">Cinema</span>
+                            <span className="header-description">Your Movie Database Organizer</span>
+                        </div>
+                    <AddMovie addMovieOpen={this.state.addMovieOpen} toggleAddMovie={this.toggleAddMovie}/>
                 </div>
-                <AddMovie addMovieOpen={this.state.addMovieOpen} toggleAddMovie={this.toggleAddMovie}/>
             </div>
-    )
-    }
+    )   }
 }
 export default Header
 

@@ -6,7 +6,8 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const store = createStore(
     appReducer,
-    composeEnhancer(applyMiddleware(thunkMiddleware)),
+    // composeEnhancer(applyMiddleware(thunkMiddleware)),
+    applyMiddleware(thunkMiddleware)
     );
 
 export default store;

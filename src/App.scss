@@ -1,4 +1,5 @@
 @import './components/common/styles/btn.scss';
+@import './components/common/styles/colors.scss';
 
 
 .App{
@@ -8,5 +9,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  background-color:#E5E5E9;
+  background: linear-gradient(to bottom, $dark-red, #000000);
+  color: white;
+  font-family: 'Varela Round', sans-serif;
 }

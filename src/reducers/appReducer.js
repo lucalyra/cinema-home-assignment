@@ -8,7 +8,7 @@ import {
 } from "../actions/action-types";
 
 export const initialState = {
-  moviesId: ["tt1987680","tt1987682","tt4154916","tt7616798","tt6101820","tt4154916","tt1650060"],
+  moviesId: ["tt1987680","tt1987682","tt4154916","tt7616798","tt6101820","tt4633694","tt1650060","tt2709692","tt1571234","tt1727824"],
   moviesArr: [],
   fetching: false,
   addId: 0
