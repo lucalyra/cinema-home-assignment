@@ -1,7 +1,6 @@
 import './MainPage.scss'
 import React, { Component } from 'react'
 
-import MovieService from '../../services/MovieService'
 import MovieContainer from './components/MovieContainer/MovieContainer'
 
 import { connect } from "react-redux";
@@ -27,22 +26,10 @@ class MainPage extends Component{
             movies: [],
         }
     }
-
     componentWillMount(){
-        // MovieService.getMovieListByName("crime")
-        //     .then(res => this.setState( { movies: res.data.Search } ) )
-        console.log(this.props.moviesArr)
         this.props.fetchMovies(this.props.moviesId)
-
     }
-    // componentDidUpdate(prevProps){
-    //     if(prevProps.moviesArr !== this.props.moviesArr){
-    //         return this.setState({movies: this.props.moviesArr})
-    //     }
-    // }
-  
-
-
+    
     render(){
         return(
                 <div className="main-page">
