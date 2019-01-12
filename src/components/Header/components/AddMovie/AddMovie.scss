@@ -27,3 +27,14 @@
 // .add-movie-input-closed{
 //     display: none;
 // }
+// .add-movie-form{
+//     display: flex;
+//     flex-direction: column;
+//     min-width: 700px;
+// }
+.add-movie-form,.add-movie-description{
+    margin: 0 40px 0 40px !important
+}
+.add-movie-title{
+    padding-bottom: 10px !important 
+}
