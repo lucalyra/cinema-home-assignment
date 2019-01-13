@@ -48,9 +48,7 @@ class AddMovie extends Component{
         if(noDuplicate(this.state, this.props.moviesArr) > 0){
             this.setState({isDuplicate: true}) 
         } else {
-            // console.log( Object.assign( moviePipe(this.state),{"Poster": "https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png","imdbID": this.props.addId}) )
             moviePipe(this.state)
-            console.log(this.state)
             this.props.addMovie({
                 "Title": this.state.Title,
                 "Year": this.state.Year,

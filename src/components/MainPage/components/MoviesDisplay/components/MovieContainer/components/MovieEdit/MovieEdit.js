@@ -5,11 +5,10 @@ import { connect } from "react-redux";
 import {editMovie} from '../../../../../../../../actions/appActions'
 
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 const mapDispatchToProps = dispatch => { //push props to store
     return {
@@ -52,22 +51,71 @@ class MovieEdit extends Component{
         this.setState({openAlert: true})
         event.preventDefault();
     }
+    handleCancel = () => {
+        this.setState({ "Title": this.props.movie.Title, "Year": this.props.movie.Year, "Runtime": this.props.movie.Runtime, "Genre": this.props.movie.Genre, "Director": this.props.movie.Director})
+        this.props.openEdit(false)
+    }
     render(){
         return(
             <div className="movie-edit">
                 <Dialog open={this.props.isEditOpen}>
                 <DialogTitle id="form-dialog-title">Edit Movie</DialogTitle>
-                <DialogContent>
-                    <TextField value={this.state.Title} margin="normal" name="Title" onChange={this.handleChange} label="Title" type="text" fullWidth/>
-                    <TextField value={this.state.Year} margin="normal" name="Year" onChange={this.handleChange} label="Year" type="text" fullWidth/>
-                    <TextField value={this.state.Runtime} margin="normal" name="Runtime" onChange={this.handleChange} label="Runtime" type="text" fullWidth/>
-                    <TextField value={this.state.Genre} margin="normal" name="Genre" onChange={this.handleChange} label="Genre" type="text" fullWidth/>
-                    <TextField value={this.state.Director} margin="normal" name="Director" onChange={this.handleChange} label="Director" type="text" fullWidth/>
-                </DialogContent>
-                <DialogActions>
-                        <Button className="movie-edit-btn" onClick={this.handleSubmit} color="primary"> Send </Button>
-                        <Button className="movie-edit-btn" onClick={()=>this.props.openEdit(false)} color="primary"> Cancel </Button>
-                </DialogActions>
+                <ValidatorForm className="add-movie-form" onSubmit={this.handleSubmit}>
+                    <TextValidator  validators={['required', 'isString']} 
+                                    value={this.state.Title}
+                                    margin="normal" 
+                                    name="Title" 
+                                    onChange={this.handleChange} 
+                                    label="Title" 
+                                    type="text"
+                                    errorMessages={['This field is required', 'Title is not valid']} 
+                                    fullWidth
+                                    />
+                    <TextValidator  validators={['required', 'isNumber',"minNumber:1700"]} 
+                                    value={this.state.Year} 
+                                    margin= "normal"
+                                    name="Year" 
+                                    onChange={this.handleChange} 
+                                    label="Year" 
+                                    type="text"
+                                    errorMessages={['This field is required', 'Year is not valid', 'Year is not valid']}
+                                    fullWidth
+                                    />
+                    <TextValidator  validators={['required', 'isString']} 
+                                    value={this.state.Runtime} 
+                                    margin="normal" 
+                                    name="Runtime" 
+                                    onChange={this.handleChange} 
+                                    label="Runtime" 
+                                    type="text"
+                                    errorMessages={['This field is required', 'Runtime is not valid']} 
+                                    fullWidth
+                                    />
+                    <TextValidator  validators={['required', 'isString']} 
+                                    value={this.state.Genre} 
+                                    margin="normal" 
+                                    name="Genre" 
+                                    onChange={this.handleChange} 
+                                    label="Genre" 
+                                    type="text"
+                                    errorMessages={['This field is required', 'Genre is not valid']} 
+                                    fullWidth
+                                    />
+                    <TextValidator  validators={['required', 'isString']} 
+                                    value={this.state.Director} 
+                                    margin="normal" 
+                                    name="Director" 
+                                    onChange={this.handleChange} 
+                                    label="Director" 
+                                    type="text" 
+                                    errorMessages={['This field is required', "Director's name is not valid"]} 
+                                    fullWidth
+                                    />
+                    <DialogActions>
+                        <Button className="movie-edit-btn" type="submit" color="primary"> Send </Button>
+                        <Button className="movie-edit-btn" onClick={this.handleCancel} color="primary"> Cancel </Button>
+                    </DialogActions>                       
+                </ValidatorForm>
                 </Dialog>
                 <AcceptEdit state={this.state} editAccepted={this.editAccepted}/>
             </div>
