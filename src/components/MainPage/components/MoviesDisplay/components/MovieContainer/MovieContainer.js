@@ -29,7 +29,10 @@ class MovieContainer extends Component{
                     </div>
                     <span className="movie-info-text movie-runtime-genre">{this.props.movie.Runtime} | {this.props.movie.Genre}</span>
                     <span className="movie-info-text movie-desc">{this.props.movie.Plot}</span>
-                    <span className="movie-info-text movie-director">Director: {this.props.movie.Director}</span>
+                    <div className="movie-info-text movie-director">
+                        <span className="movie-director-title">Director: </span> 
+                        {this.props.movie.Director}
+                    </div>
                 </div>
             </div>   
         )
