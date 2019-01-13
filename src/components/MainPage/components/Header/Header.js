@@ -19,9 +19,6 @@ class Header extends Component{
                 <div className="header-background">
                     <div className="top-header">
                         <div className="header-link-container">
-                            <div className="header-link-btn" onClick={()=>window.scrollTo(0,0)}>
-                                <span className="header-link-text"> Home </span>
-                            </div>
                             <div className="header-link-btn" onClick={this.toggleAddMovie}>
                                 <span className="header-link-text" > Add Movies </span>
                             </div>
@@ -29,7 +26,7 @@ class Header extends Component{
                     </div>
                         <div className="header-info">
                             <span className="header-title">Cinema</span>
-                            <span className="header-description">Your Movie Database Organizer</span>
+                            <span className="header-description">Your Movie Organizer</span>
                         </div>
                     <AddMovie addMovieOpen={this.state.addMovieOpen} toggleAddMovie={this.toggleAddMovie}/>
                 </div>

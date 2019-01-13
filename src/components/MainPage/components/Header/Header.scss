@@ -37,16 +37,16 @@
 }
 .header-title{
     text-align: center;
-    color: $light-red;
-    text-shadow: 4px 3px 2px #9c001b;
+    color: $light-green;
+    text-shadow: 4px 3px 2px $dark-green;
     font-family: 'Righteous', cursive;
     font-size: 140px;
 
 }
 .header-description{
     text-align: center;
-    color: $light-red;
-    text-shadow: 4px 3px 2px #9c001b;
+    color: $light-green;
+    text-shadow: 2px 1px 2px $dark-green;
     font-size: 20px
 }
 .header-options{
