@@ -1,0 +1,13 @@
+.movie-options{
+    cursor: pointer;
+    font-size: 18px;
+        .fas{
+            padding: 0 7px;
+        }
+    
+}
+@media only screen and (max-width: 479px) {
+    .movie-options{
+        font-size: 15px;
+    }
+}

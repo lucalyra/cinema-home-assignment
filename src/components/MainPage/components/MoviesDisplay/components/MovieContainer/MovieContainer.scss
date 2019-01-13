@@ -2,9 +2,9 @@
 
 .movie-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 350px;
-    width: 200px;
+    width: 520px;
     margin: 10px;
 
 }
@@ -13,91 +13,59 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
-    width: 100%;
+    width: 50%;
     background-size: cover;
     background-position: 50%;
     border: 0px solid black;
-    border-radius: 2%;
+    border-top-left-radius: 2%;
+    border-bottom-left-radius: 2%;
     overflow: hidden;
 }
-
+.movie-info-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin-top: 10px;
+}
 .movie-info{
     display: flex;
     flex-direction: column;
-    width: 80%;
-}
-
-.movie-title{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 16px;
-}
-.movie-year{
+    height: 100%;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.32941176470588235);
     font-size: 14px;
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 2%;
 }
-.movie-container-bottom{
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 5px;
-    .fas{
-        cursor: pointer;
-        justify-self: flex-end;
-        height: 100%;
-        padding: 5%;
-
-  }
-    
-}
-.movie-options{
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: black;
-    position: absolute;
-    z-index: 1;
-    top: -85px;
-    left: 140px;
-
-    background: rgba(247, 247, 247, 0.97);
-    height: 95px;
-    width: 100px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 34px 1px rgba(0,0,0,0.47);
-
+.movie-title-year{
+    font-size: 18px;
     font-weight: bold;
-    .options-btn{
-        width: 100%;
-        padding-top: 8%;
-        padding-bottom: 8%;
-        text-align: center;
-        cursor: pointer;
-        &:hover{
-        background: $light-red
-        }
-    }
-    
 }
-.movie-options-open{
-    display: flex;
+.movie-info-text{
+    padding: 0 5px 0 5px;
+}
+.movie-runtime-genre{
+    padding-top:5px
+}
+.movie-desc{
+    padding:15px 5px 10px 5px;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 479px) {
     .movie-container {
-        height: 168px;
-        width: 100px;
+        height: 220px;
+        width: 320px;
         }
-    .movie-title{
-        font-size:14px;
+    .movie-info{
+        font-size:11px;
     }
-    .movie-year{
-        font-size: 11px;
+    .movie-title-year{
+        font-size: 13px;
     }
-    .movie-options{
-        top: -85px;
-        left: 25px;
+    .movie-desc{
+        padding:5px;
     }
   }

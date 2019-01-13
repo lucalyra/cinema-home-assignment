@@ -48,7 +48,7 @@ class MovieOptions extends Component{
     }
     render() {        
         return (
-            <div>
+            <div className="movie-options">
                 <i className="fas fa-ellipsis-v" onClick={this.handleClick}></i>
                 <Menu
                     id="simple-menu"

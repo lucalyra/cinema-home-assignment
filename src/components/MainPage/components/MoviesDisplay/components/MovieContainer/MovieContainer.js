@@ -22,12 +22,14 @@ class MovieContainer extends Component{
         return(
             <div className="movie-container">
                 <div className="movie-picture" style={{backgroundImage: `url(${this.props.movie.Poster})`}}></div>
-                <div className="movie-container-bottom">
-                    <div className="movie-info">
-                        <span className="movie-title">{this.props.movie.Title}</span>
-                        <span className="movie-year">{this.props.movie.Year}</span>
+                <div className="movie-info">
+                    <div className="movie-info-header">
+                        <span className="movie-info-header-text movie-title-year">{this.props.movie.Title} ({this.props.movie.Year})</span>
+                        <MovieOptions movie={this.props.movie}/>
                     </div>
-                <MovieOptions movie={this.props.movie}/>
+                    <span className="movie-info-text movie-runtime-genre">{this.props.movie.Runtime} | {this.props.movie.Genre}</span>
+                    <span className="movie-info-text movie-desc">{this.props.movie.Plot}</span>
+                    <span className="movie-info-text movie-director">Director: {this.props.movie.Director}</span>
                 </div>
             </div>   
         )
