@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/cinema-home-assignment/static/js/runtime~main.afd4a1a9.js"
   },
   {
-    "revision": "8f7a09d0fc5fcb270183",
-    "url": "/cinema-home-assignment/static/js/main.8f7a09d0.chunk.js"
+    "revision": "7f979514878499b7d541",
+    "url": "/cinema-home-assignment/static/js/main.7f979514.chunk.js"
   },
   {
     "revision": "b619263970a2c7462b2e",
     "url": "/cinema-home-assignment/static/js/1.b6192639.chunk.js"
   },
   {
-    "revision": "8f7a09d0fc5fcb270183",
-    "url": "/cinema-home-assignment/static/css/main.126ae211.chunk.css"
+    "revision": "7f979514878499b7d541",
+    "url": "/cinema-home-assignment/static/css/main.c85ccc44.chunk.css"
   },
   {
-    "revision": "131995595e2470b9a7283791f9b7c864",
+    "revision": "20867a96267501c42c65868b6caa0544",
     "url": "/cinema-home-assignment/index.html"
   }
 ];
