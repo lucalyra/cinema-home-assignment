@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import AcceptEdit from './components/AcceptEdit/AcceptEdit'
 import { connect } from "react-redux";
 import {editMovie} from '../../../../../../../../actions/appActions'
+import moviePipe from '../../../../../../../common/components/moviePipe'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -30,6 +31,7 @@ class MovieEdit extends Component{
     }
     editAccepted = (boolean) =>{
         if(boolean){
+            moviePipe(this.state)
             this.props.editMovie({
                 "Title": this.state.Title,
                 "Year": this.state.Year,

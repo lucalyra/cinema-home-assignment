@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import {addMovie, idGene} from '../../../../../../actions/appActions'
 import {noDuplicate,DuplicateAlert} from '../../../../../common/components/Duplicate'
-import moviePipe from './component/moviePipe'
+import moviePipe from '../../../../../common/components/moviePipe'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
