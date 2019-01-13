@@ -56,7 +56,8 @@ class AddMovie extends Component{
                 "Genre": this.state.Genre,
                 "Director": this.state.Director,
                 "imdbID": this.props.addId,
-                "Poster": "https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"
+                "Poster": "https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png",
+                "Plot": "No Plot Added"
             })
             this.props.toggleAddMovie()
             this.props.idGene()
@@ -86,14 +87,14 @@ class AddMovie extends Component{
                                         errorMessages={['This field is required', 'Title is not valid']} 
                                         fullWidth
                                         />
-                        <TextValidator  validators={['required', 'isNumber',"minNumber:1700"]} 
+                        <TextValidator  validators={['required', 'isNumber',"minNumber:1700","maxNumber: 2100"]} 
                                         value={this.state.Year} 
                                         margin= "normal"
                                         name="Year" 
                                         onChange={this.handleChange} 
                                         label="Year" 
                                         type="text"
-                                        errorMessages={['This field is required', 'Year is not valid', 'Year is not valid']}
+                                        errorMessages={['This field is required', 'Year is not valid', 'Year is not valid', 'Year is not valid']}
                                         fullWidth
                                         />
                         <TextValidator  validators={['required', 'isString']} 
