@@ -26,11 +26,11 @@ class AcceptEdit extends Component{
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
+            <       Button onClick={()=>this.props.editAccepted(false)}>
+                        No
+                    </Button>
                     <Button onClick={()=>this.props.editAccepted(true)}>
                         Yes
-                    </Button>
-                    <Button onClick={()=>this.props.editAccepted(false)}>
-                        No
                     </Button>
                 </DialogActions>
             </Dialog>  

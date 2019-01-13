@@ -58,7 +58,7 @@ class MovieContainer extends Component{
                     </div>
                 </div>
             <MovieEdit isEditOpen={this.state.isEditOpen} openEdit={this.openEdit} movie={this.props.movie}/>
-            <DeletePopup isDeleteOpen={this.state.isDeleteOpen} deleteMovie={this.deleteMovie}/>
+            <DeletePopup isDeleteOpen={this.state.isDeleteOpen} deleteMovie={this.deleteMovie} movie={this.props.movie}/>
             </div>   
         )
     }

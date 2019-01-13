@@ -22,7 +22,7 @@ class DeletePopup extends Component{
                 <DialogTitle>{"Want to delete?"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Are you sure you want to delete this movie?
+                        Are you sure you want to delete "{this.props.movie.Title}"?
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
