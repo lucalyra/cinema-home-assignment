@@ -4,7 +4,7 @@ import MovieEdit from './components/MovieEdit/MovieEdit'
 import DeletePopup from './components/DeletePopup/DeletePopup'
 
 import { connect } from "react-redux";
-import {deleteMovie} from '../../../../actions/appActions'
+import {deleteMovie} from '../../../../../../actions/appActions'
 
 const mapDispatchToProps = dispatch => { //push props to store
     return {

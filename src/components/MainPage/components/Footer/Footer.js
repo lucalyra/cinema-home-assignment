@@ -7,8 +7,8 @@ class Footer extends Component{
      
         return(
             <div className="footer">
-                <div>Lucas Lyra</div>
-                <div>Email: lucalyra@gmail.com</div>
+                <div className="footer-text">Name: Lucas Lyra</div>
+                <div className="footer-text">Email: lucalyra@gmail.com</div>
             </div>
     )   }
 }

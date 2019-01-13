@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import MovieContainer from './components/MovieContainer/MovieContainer'
 
 import { connect } from "react-redux";
-import {fetchMovies} from '../../actions/appActions'
+import {fetchMovies} from '../../../../actions/appActions'
 
 const mapDispatchToProps = dispatch => { //push props to store
     return {

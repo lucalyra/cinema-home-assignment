@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './MainPage.scss';
 
-import MoviesDisplay from '../MoviesDisplay/MoviesDisplay'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import MoviesDisplay from './components/MoviesDisplay/MoviesDisplay'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 class MainPage extends Component {
 
   render() {
