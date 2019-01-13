@@ -9,6 +9,9 @@ export default function moviePipe(movieObj){
                     .map((letter) => letter.charAt(0).toUpperCase() + letter.substring(1))
                     .join(' ');
             }
+            if(movieObj[elem] === ""){
+                movieObj[elem] = "*No Name*"
+            }
     }
     return movieObj
 }
