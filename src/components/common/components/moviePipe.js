@@ -1,7 +1,7 @@
 export default function moviePipe(movieObj){
     for (let elem in movieObj) {  
-            if(/^[a-zA-Z0-9$$!%?&#^-_. +]+$/.test(movieObj[elem]) === false){
-                movieObj[elem] = movieObj[elem].replace(/[^a-zA-Z0-9!?&-.+ ]/g, "")
+            if(/^[a-zA-Z0-9!?&-. +]+$/.test(movieObj[elem]) === false){
+                movieObj[elem] = movieObj[elem].replace(/[^a-zA-Z0-9!?&-. +]/g, "")
             }
             if( isNaN(movieObj[elem]) ){
                 movieObj[elem] = movieObj[elem].toLowerCase()
