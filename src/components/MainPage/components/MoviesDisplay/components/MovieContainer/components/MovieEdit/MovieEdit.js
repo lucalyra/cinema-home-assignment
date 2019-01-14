@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AcceptEdit from './components/AcceptEdit/AcceptEdit'
 import { connect } from "react-redux";
 import {editMovie} from '../../../../../../../../actions/appActions'
+import {noDuplicate,DuplicateAlert} from '../../../../../../../common/components/Duplicate'
 import moviePipe from '../../../../../../../common/components/moviePipe'
 
 import Button from '@material-ui/core/Button';
@@ -15,7 +16,11 @@ const mapDispatchToProps = dispatch => { //push props to store
         editMovie: movieObj => dispatch(editMovie(movieObj)),
         };
     };
-
+const mapStateToProps = state => { //pull props from store
+    return { 
+        moviesArr: state.moviesArr
+        };
+    }; 
 class MovieEdit extends Component{
     constructor(props){
         super(props)
@@ -25,11 +30,16 @@ class MovieEdit extends Component{
                Runtime: this.props.movie.Runtime,
                Genre: this.props.movie.Genre,
                Director: this.props.movie.Director,
-               openAlert: false
+               openAlert: false,
+               isDuplicate: false
+
         }
     }
     editAccepted = (boolean) =>{
         if(boolean){
+            if(noDuplicate(this.state, this.props.moviesArr) > 0){
+                this.setState({isDuplicate: true}) 
+            } else {
             moviePipe(this.state)
             this.props.editMovie({
                 "Title": this.state.Title,
@@ -41,13 +51,15 @@ class MovieEdit extends Component{
             })
             this.setState({openAlert: false})
             this.props.openEdit(false)
-        } else {this.setState({openAlert: false})
+        } } else {this.setState({openAlert: false})
     }
     }
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
     }
-
+    closeDuplicate = () =>{
+        this.setState({isDuplicate: false})
+    }
     handleSubmit = (event) => {
         this.setState({openAlert: true})
         event.preventDefault();
@@ -119,11 +131,12 @@ class MovieEdit extends Component{
                 </ValidatorForm>
                 </Dialog>
                 <AcceptEdit state={this.state} editAccepted={this.editAccepted}/>
+                <DuplicateAlert state={this.state} closeDuplicate={this.closeDuplicate}/>
             </div>
         )
     }
     
 }
 
-const ConnectedMovieEdit = connect(null, mapDispatchToProps)(MovieEdit)
+const ConnectedMovieEdit = connect(mapStateToProps, mapDispatchToProps)(MovieEdit)
 export default ConnectedMovieEdit
