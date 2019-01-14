@@ -36,16 +36,16 @@
 }
 .header-title{
     text-align: center;
-    color: $light-green;
-    text-shadow: 4px 3px 2px $dark-green;
+    color: white;
+    text-shadow: 4px 3px 2px $dark-gold;
     font-family: 'Righteous', cursive;
     font-size: 140px;
 
 }
 .header-description{
     text-align: center;
-    color: $light-green;
-    text-shadow: 2px 1px 2px $dark-green;
+    color: white;
+    text-shadow: 2px 1px 2px $dark-gold;
     font-size: 20px;
     font-weight: bold;
 }
@@ -84,7 +84,7 @@
     height: 100%;
 
     &:hover .header-link-text{
-        color: $light-green;
+        color: $light-gold;
     }
 }
 @media only screen and (max-width: $mobile) {
