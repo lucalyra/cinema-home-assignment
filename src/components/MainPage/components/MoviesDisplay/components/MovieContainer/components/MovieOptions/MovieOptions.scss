@@ -1,3 +1,4 @@
+@import '../../../../../../../common/styles/parameters';
 .movie-options{
     cursor: pointer;
     font-size: 18px;
@@ -6,7 +7,7 @@
         }
     
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: $mobile) {
     .movie-options{
         font-size: 15px;
     }

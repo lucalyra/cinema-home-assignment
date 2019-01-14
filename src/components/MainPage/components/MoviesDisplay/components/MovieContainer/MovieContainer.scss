@@ -1,4 +1,4 @@
-@import '../../../../../common/styles/colors';
+@import '../../../../../common/styles/parameters';
 
 .movie-container{
     display: flex;
@@ -59,7 +59,7 @@
     letter-spacing: 1px;
 }
 
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: $mobile) {
     .movie-container {
         margin: 7px 0;
         height: 225px;

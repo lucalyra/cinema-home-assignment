@@ -113,7 +113,7 @@ class MovieEdit extends Component{
                                     fullWidth
                                     />
                     <DialogActions>
-                        <Button className="movie-edit-btn" type="submit" color="primary"> Send </Button>
+                        <Button className="movie-edit-btn" type="submit" color="primary"> Save </Button>
                         <Button className="movie-edit-btn" onClick={this.handleCancel} color="primary"> Cancel </Button>
                     </DialogActions>                       
                 </ValidatorForm>

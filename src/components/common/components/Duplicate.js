@@ -8,16 +8,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 export function noDuplicate(newMovie, movieArr ){
     let num = 0 
-    movieArr.map(movie =>{
-        if(movie.data.Title == newMovie.Title){ num++ } 
+    movieArr.map(movie => { 
+        if(movie.data.Title === newMovie.Title){ return num++ } 
     } )
     return num
 }
 
 export class DuplicateAlert extends Component{
-    constructor(props){
-        super(props)
-    }
+
     render(){
         return(
             <div className="duplicate-popup">

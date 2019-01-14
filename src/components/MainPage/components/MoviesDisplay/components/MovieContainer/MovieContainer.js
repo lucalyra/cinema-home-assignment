@@ -1,7 +1,5 @@
 import './MovieContainer.scss'
 import React, { Component } from 'react'
-import MovieEdit from './components/MovieEdit/MovieEdit'
-import DeletePopup from './components/DeletePopup/DeletePopup'
 import MovieOptions from './components/MovieOptions/MovieOptions'
 
 import { connect } from "react-redux";
@@ -14,9 +12,6 @@ const mapDispatchToProps = dispatch => { //push props to store
     };
 
 class MovieContainer extends Component{
-    constructor(props){
-        super(props)
-    }
 
     render(){
         return(

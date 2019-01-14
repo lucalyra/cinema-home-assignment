@@ -1,4 +1,4 @@
-@import '../../../common/styles/colors';
+@import '../../../common/styles/parameters';
 
 .header{
     width: 100%;
@@ -49,14 +49,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-.header-options{
-    display: flex;
-    min-width: 30px;
-    justify-content: center;
-    .search-input{
-        margin-left: 5px;
-    }
-}
 .top-header{
     display: flex;
     position: fixed;
@@ -95,7 +87,7 @@
         color: $light-green;
     }
 }
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: $mobile) {
     .header {
         height: 60%; 
     }

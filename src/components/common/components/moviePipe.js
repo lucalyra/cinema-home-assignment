@@ -10,7 +10,7 @@ export default function moviePipe(movieObj){
                     .join(' ');
             }
             if(movieObj[elem] === ""){
-                movieObj[elem] = "*No Name*"
+                movieObj[elem] = "No Name"
             }
     }
     return movieObj
